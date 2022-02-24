@@ -17,6 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@styles/*": ["styles/*"],
+      "@containers/*": ["containers/*"],
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
