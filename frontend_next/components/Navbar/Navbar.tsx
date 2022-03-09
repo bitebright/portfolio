@@ -3,7 +3,7 @@ import Image from "next/image";
 import { images } from "@constants/index";
 import Link from "next/link";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
-import { AnimatePresence, motion, useCycle, Variants } from "framer-motion";
+import { AnimatePresence, motion, useCycle } from "framer-motion";
 
 const Navbar: React.FC = () => {
   const [open, cycleOpen] = useCycle(false, true);
