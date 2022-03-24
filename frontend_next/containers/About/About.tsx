@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { images } from "@constants/index";
+import { AppWrap } from "wrapper";
 import styles from "./About.module.scss";
-import { useEffect, useState } from "react";
-import { client, urlFor } from "client";
-import { GetStaticProps } from "next";
 
 type AboutProps = {
   abouts: AboutType[];
@@ -34,11 +31,7 @@ const About: React.FC<AboutProps> = ({ abouts }: AboutProps) => {
             key={about.title + index}
           >
             <div className={styles.logo}>
-              <Image
-                src={urlFor(about.imgUrl).url()}
-                alt={about.title}
-                layout="fill"
-              />
+              <Image src={about.imgUrl} alt={about.title} layout="fill" />
             </div>
             <h2 className={styles.boldText} style={{ marginTop: 20 }}>
               {about.title}
@@ -53,4 +46,4 @@ const About: React.FC<AboutProps> = ({ abouts }: AboutProps) => {
   );
 };
 
-export default About;
+export default AppWrap(About, "about");

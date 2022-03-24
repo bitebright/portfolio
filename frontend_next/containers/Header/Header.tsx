@@ -1,6 +1,7 @@
 import { images } from "@constants/index";
-import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { AppWrap } from "wrapper/index";
 import styles from "./Header.module.scss";
 
 const Header: React.FC = () => {
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div id={"home"} className={styles.header}>
+    <div className={styles.header}>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
@@ -66,4 +67,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default AppWrap(Header, "home");

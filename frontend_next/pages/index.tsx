@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "@styles/Home.module.scss";
 import { About, Footer, Header, Skill, Work } from "@containers/index";
 import { Navbar } from "@components/index";
-import { client } from "client";
+import { client, urlFor } from "client";
 import { AboutType } from "@containers/About/About";
 
 type Props = {
@@ -31,7 +31,8 @@ const Home: NextPage<Props> = ({ abouts }: Props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const query = '*[_type == "abouts"]';
-  const abouts = await client.fetch(query);
+  let abouts: AboutType[] = await client.fetch(query);
+  abouts.map((about) => (about.imgUrl = urlFor(about.imgUrl).url()), abouts);
 
   return {
     props: {
